@@ -1,0 +1,25 @@
+<h2 class="mb-4">Panel de Administración</h2>
+
+<p>
+  Bienvenido <strong><%= usuario.nombre %></strong>
+</p>
+
+<div class="stats mb-4">
+  <div class="stat-card">
+    <div class="stat-number"><%= totalClientes %></div>
+    <div class="stat-label">Clientes registrados</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-number"><%= totalCitas %></div>
+    <div class="stat-label">Total de citas</div>
+  </div>
+</div>
+
+<hr>
+
+<ul>
+  <li><a href="/admin/citas">Gestionar citas</a></li>
+  <li><a href="/admin/empleados">Gestionar empleados</a></li>
+  <li><a href="/admin/servicios">Gestionar servicios</a></li>
+</ul>

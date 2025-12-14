@@ -1,0 +1,30 @@
+<h2>Agendar Cita</h2>
+
+<form action="/citas/crear" method="POST">
+
+  <div>
+    <label>Fecha</label><br>
+    <input type="date" name="fecha" required>
+  </div>
+
+  <div>
+    <label>Hora</label><br>
+    <input type="time" name="hora" required>
+  </div>
+
+  <div>
+    <label>Servicio</label><br>
+    <select name="servicio_id" required>
+      <option value="">Seleccione un servicio</option>
+      <% servicios.forEach(servicio => { %>
+    <option value="<%= servicio.id %>">
+      <%= servicio.nombre %> - $<%= servicio.precio %>
+    </option>
+  <% }) %>
+  </select>
+  </div>
+
+  <br>
+  <button type="submit">Agendar cita</button>
+
+</form>

@@ -1,0 +1,61 @@
+<h2 class="mb-4">Panel de Gestión de la Barbería</h2>
+
+<!-- ESTADÍSTICAS -->
+<div class="stats mb-4">
+  <div class="stat-card">
+    <div class="stat-number"><%= totalCitas %></div>
+    <div class="stat-label">Total de Citas</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-number"><%= citasConfirmadas %></div>
+    <div class="stat-label">Citas Confirmadas</div>
+  </div>
+
+  <div class="stat-card">
+    <div class="stat-number"><%= citasPendientes %></div>
+    <div class="stat-label">Citas Pendientes</div>
+  </div>
+</div>
+
+<!-- LISTA DE CITAS -->
+<h3 class="mb-3">Próximas Citas</h3>
+
+<% if (citas.length === 0) { %>
+  <p>No hay citas registradas</p>
+<% } else { %>
+  <ul class="task-list">
+    <% citas.forEach(cita => { %>
+      <li class="task-item">
+        <strong>Fecha:</strong> <%= cita.fecha %> |
+        <strong>Hora:</strong> <%= cita.hora %> |
+        <strong>Estado:</strong>
+<span class="
+  <%= cita.estado === 'pendiente' ? 'estado-pendiente' :
+      cita.estado === 'confirmada' ? 'estado-confirmada' :
+      'estado-cancelada' %>
+">
+  <%= cita.estado %>
+</span>
+
+        <% if (cita.estado === 'pendiente') { %>
+          <form action="/citas/confirmar/<%= cita.id %>" method="POST" style="display:inline;">
+            <button type="submit" class="btn btn-success btn-sm">
+              Confirmar
+            </button>
+          </form>
+
+          <form action="/citas/cancelar/<%= cita.id %>" method="POST" style="display:inline;">
+            <button type="submit" class="btn btn-danger btn-sm">
+              Cancelar
+            </button>
+          </form>
+        <% } %>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<a href="/citas/nueva" class="btn btn-primary mt-3">
+  + Agendar nueva cita
+</a>

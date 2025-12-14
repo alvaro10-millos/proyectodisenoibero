@@ -1,0 +1,8 @@
+<h2>Error <%= error.status || 500 %></h2>
+<p><strong><%= title %></strong></p>
+<p><%= message %></p>
+<a href="/" class="btn btn-secondary">Volver al Inicio</a>
+
+<% if (error.stack) { %>
+    <pre><%= error.stack %></pre>
+<% } %>

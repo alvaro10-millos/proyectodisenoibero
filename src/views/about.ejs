@@ -1,0 +1,29 @@
+<h2 class="mb-4">Acerca de <%= appName %></h2>
+
+<!-- DESCRIPCIÓN DEL PROYECTO -->
+<div class="card mb-4">
+    <div class="card-content">
+        <p>Bienvenido a la página de Acerca de <strong><%= appName %></strong>. Aquí encontrarás información sobre nuestro proyecto y su propósito.</p>
+        <p><strong><%= appName %></strong> es una aplicación diseñada para ayudarte a gestionar tus tareas de manera eficiente y organizada.</p>
+    </div>
+</div>
+
+<!-- CARACTERÍSTICAS -->
+<h3 class="mb-3">Características principales:</h3>
+<div class="card mb-4">
+    <ul class="list-group list-group-flush">
+        <% features.forEach(feature => { %>
+            <li class="list-group-item">
+                <i class="bi bi-check-circle-fill" style="color: var(--primary-color); margin-right: 10px;"></i>
+                <%= feature %>
+            </li>
+        <% }) %>
+    </ul>
+</div>
+
+<!-- MENSAJE DE DESPEDIDA -->
+<div class="card">
+    <div class="card-content">
+        <p>¡Gracias por visitar la página de Acerca de <strong><%= appName %></strong>!</p>
+    </div>
+</div>

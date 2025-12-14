@@ -1,0 +1,33 @@
+<h2>Gestión de empleados</h2>
+
+<form method="POST" action="/admin/empleados" class="mb-4">
+  <input type="text" name="nombre" placeholder="Nombre" required>
+  <input type="text" name="especialidad" placeholder="Especialidad" required>
+  <input type="text" name="telefono" placeholder="Teléfono">
+  <button type="submit">Agregar empleado</button>
+</form>
+
+<hr>
+
+<h3>Empleados registrados</h3>
+
+<% if (empleados.length === 0) { %>
+  <p>No hay empleados registrados</p>
+<% } else { %>
+  <ul>
+    <% empleados.forEach(emp => { %>
+      <li>
+        <strong><%= emp.nombre %></strong> –
+        <%= emp.especialidad %>
+
+        <form
+          method="POST"
+          action="/admin/empleados/eliminar/<%= emp.id %>"
+          style="display:inline"
+        >
+          <button type="submit">Eliminar</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>

@@ -1,0 +1,17 @@
+<h2>Mi perfil</h2>
+
+<form action="/cliente/perfil" method="POST" class="perfil-form">
+
+  <label>Nombre</label>
+  <input type="text" name="nombre" value="<%= usuario.nombre %>" required>
+
+  <label>Correo</label>
+  <input type="email" name="email" value="<%= usuario.email %>" required>
+
+  <label>Teléfono</label>
+  <input type="text" name="telefono" value="<%= usuario.telefono %>">
+
+  <button type="submit" class="btn btn-primary">
+    Guardar cambios
+  </button>
+</form>

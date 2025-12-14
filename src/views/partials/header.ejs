@@ -1,0 +1,35 @@
+<header class="bg-dark text-white p-3 mb-4">
+  <h1><%= appName %></h1>
+
+  <nav>
+    <% if (usuario) { %>
+
+      <span class="me-3">
+        👤 <strong><%= usuario.nombre %></strong>
+        (<%= usuario.rol %>)
+      </span>
+
+      <a href="/" class="me-3">Inicio</a>
+
+      <% if (usuario.rol === 'cliente') { %>
+        <a href="/citas/nueva" class="me-3">Agendar cita</a>
+        <a href="/cliente/perfil" class="me-3">Mi perfil</a>
+      <% } %>
+
+      <% if (usuario.rol === 'admin') { %>
+        <a href="/admin/dashboard" class="me-3">Panel Admin</a>
+        <a href="/admin/citas" class="me-3">Gestionar citas</a>
+        <a href="/admin/empleados" class="me-3">Empleados</a>
+      <% } %>
+
+      <a href="/cliente/logout">Cerrar sesión</a>
+
+    <% } else { %>
+
+      <a href="/" class="me-3">Inicio</a>
+      <a href="/cliente/login" class="me-3">Iniciar sesión</a>
+      <a href="/cliente/registro">Registrarse</a>
+
+    <% } %>
+  </nav>
+</header>
